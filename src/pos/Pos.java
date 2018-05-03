@@ -7,6 +7,8 @@ package pos;
 
 /**
  *
+ * test mac
+ * shortcut for print command - sout + tab
  * @author Josh
  */
 public class Pos {
