@@ -8,7 +8,7 @@ import java.util.List;
  * @author Josh
  */
 public class ItemRegistry {
-    private final List<ItemDTO> itemData = new ArrayList<>(); // hur funkar listor? 
+    private final List<ItemDTO> itemData = new ArrayList<>(); // hur funkar listor? z
             
     public ItemRegistry() {
         itemData.add(new)
