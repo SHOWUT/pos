@@ -1,6 +1,7 @@
 package pos.model;
 
 import java.time.LocalDateTime;
+import pos.integration.ItemDTO;
 
 /**
  *
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
  */
 public class Sale {
     private LocalDateTime saleTime;
+    private final SaleInfo saleInfo = new SaleInfo();
     /**
      * Creates a new instance, and records the time it was created. 
      * This will be the time recorded on the receipt. 
@@ -18,4 +20,15 @@ public class Sale {
         saleTime = LocalDateTime.now();
     }
     
+    public void addItem2Sale(ItemDTO itemDTO) {
+        saleInfo.addItem2Cart(itemDTO);
+    }
+    
+    public void runningTotal() {
+       saleInfo.runningTotal();
+    }
+    
+    public double totalWithTax() {
+        return saleInfo.totalWithTax();
+    }
 }

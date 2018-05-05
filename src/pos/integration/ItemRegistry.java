@@ -17,12 +17,27 @@ public class ItemRegistry {
         itemsAvalible.add(new ItemDTO(2857, "Scroll of strength  [A spell that gives you the ability to absorb the strength of defeated enemys.]", 1234.56));
     }
     
-    public String checkItemID(itemID) {
+    public String checkItemID(int itemID) {
         for (ItemDTO itemDTO : itemsAvalible) {
-            if () {
-                
+            if (itemID == itemDTO.getItemIdentification()) {
+                return itemDTO.toString();
             }
         }
+        return "Item ID " +itemID + " is invalid";
+    }
+    // new
+    public ItemDTO verifyItem(int itemID) {
+        for (ItemDTO itemDTO : itemsAvalible) {
+            if (itemID == itemDTO.getItemIdentification()) {
+                return itemDTO;
+            }
+        }
+        invalidItemID(itemID);
+        return null;
+    }
+    
+    private void invalidItemID(int itemID) {
+        System.out.println("Item ID " + itemID + " is invalid.");
     }
     
     
