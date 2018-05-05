@@ -10,13 +10,18 @@ package pos.integration;
  * @author Josh
  */
 public class ItemDTO {
+    private final int itemIdentification;
     private final String itemDes;
     private final double price;
     
     
-    public ItemDTO(String itemDes, double price) {
+    public ItemDTO(int itemIdentification,String itemDes, double price) {
+        this.itemIdentification = itemIdentification;
         this.itemDes = itemDes;
         this.price = price;
+    }
+    public int getItemIdentification() {
+        return itemIdentification;
     }
     
     public String getItemDes() {

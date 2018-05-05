@@ -11,14 +11,18 @@ public class ItemRegistry {
     private final List<ItemDTO> itemsAvalible = new ArrayList<>(); // hur funkar listor? z
             
     public ItemRegistry() {
-        itemsAvalible.add(new ItemDTO("Flour [2kg]", 1.49));
-        itemsAvalible.add(new ItemDTO("Milk [1L, 3% fat]", 1.12));
-        itemsAvalible.add(new ItemDTO("Eggs [6-pack]", 1.6));
-        itemsAvalible.add(new ItemDTO("Butter [500g]", 3.3));
+        itemsAvalible.add(new ItemDTO(8465, "Sky boots [Increases your jump by 10x.]", 400));
+        itemsAvalible.add(new ItemDTO(2638, "All-around potion [Gives +5 on all attributes.]", 555));
+        itemsAvalible.add(new ItemDTO(1857, "Bottle of light [Blinds anyone within a radius of 50m.]", 170));
+        itemsAvalible.add(new ItemDTO(2857, "Scroll of strength  [A spell that gives you the ability to absorb the strength of defeated enemys.]", 1234.56));
     }
     
     public String checkItemID(itemID) {
-        
+        for (ItemDTO itemDTO : itemsAvalible) {
+            if () {
+                
+            }
+        }
     }
     
     
