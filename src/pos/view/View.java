@@ -26,7 +26,7 @@ public class View {
         System.out.println("Starting sample execution.");
         contr.startSale();
         System.out.println("After call to startSale().");
-        contr.identifyItem(1234, 2); //itemid n quanNUm , tänk på inga odef num anv stora bokstäver
+        SaleInfo saleInfo = contr.identifyItem(1234, 2); //itemid n quanNUm , tänk på inga odef num anv stora bokstäver
         
     }
     

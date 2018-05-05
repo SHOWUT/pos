@@ -10,6 +10,7 @@ import pos.model.Sale;
  */
 public class Controller {
     private Sale sale;
+    private String validItemID;
     /**
      * Creates an empty instance of {@link Sale}, which will be used for all information regarding
      * the sale that is now started.
