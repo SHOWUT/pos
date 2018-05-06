@@ -2,6 +2,7 @@ package pos.view;
 
 import pos.controller.Controller;
 import pos.integration.ItemDTO;
+import pos.model.SaleDTO;
 
 /**
  * This is a placeholder for the view. It contains only hard-coded calls to the controller.
@@ -11,7 +12,8 @@ import pos.integration.ItemDTO;
 public class View {
     private Controller contr;
     private String testPrint;
-    
+    private static final double AMOUNT_PAID_BY_CUSTOMER = 2700.56;
+    // make the same variables for the item ids as amount paid by cust
     
     /**
      * Constructs a new view, using the specified controller.
@@ -41,10 +43,15 @@ public class View {
         System.out.println(temp);
         ItemDTO aa = contr.identifyAndRegItem(1857); // latest test. 
         System.out.println(aa);
-        ItemDTO nn = contr.identifyAndRegItem(1212); // latest test. 
-        System.out.println(nn);
+       //invalid item ItemDTO nn = contr.identifyAndRegItem(1212); // latest test. 
+        // invalid item System.out.println(nn);
         double dTotal = contr.fetchTotal();
-        System.out.println("Total inc tax: " + dTotal + " gold");
+        System.out.println("Total [Inc 25 % tax]: " + dTotal + " gold");
+       // workz metdo System.out.println(contr.saleReceipt(dTotal));
+        // workz metdo System.out.println(contr.payment(AMOUNT_PAID_BY_CUSTOMER));
+        contr.payment(AMOUNT_PAID_BY_CUSTOMER, dTotal);
+        SaleDTO kvitto = contr.getSaleDTO();
+        System.out.println(kvitto);
     }
     
 }

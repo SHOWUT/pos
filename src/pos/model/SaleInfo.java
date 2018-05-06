@@ -5,6 +5,7 @@
  */
 package pos.model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import pos.integration.ItemDTO;
@@ -17,10 +18,15 @@ public class SaleInfo {
     private final List<ItemDTO> itemCart = new ArrayList<>(); // make list of registered items. 
      private double runningTotal; // cant put final??? 
      private  double totalWithTax; // cant put final?
-     private static double taxPct = 1.12; // no final======????
+     private static final double taxPct = 1.25; // no final======????
     
     void addItem2Cart (ItemDTO itemDTO) {
         itemCart.add(itemDTO);
+    }
+    
+    //helps payment get list
+    public List<ItemDTO> getList() {
+        return itemCart;
     }
     
     /**
@@ -34,7 +40,7 @@ public class SaleInfo {
         }
  {
         
-        System.out.println("Running Total: " + runningTotal); // make method instead !!!!!!
+        System.out.println("Running Total: " + runningTotal); // make method instead !!!!!! better visauls
         //runningTotal = 0;
         //resetRunningTotal();
         
@@ -55,4 +61,16 @@ private void resetRunningTotal(){
         runningTotal = 0;
     }
 */
+   /* -------- THIS METOD WORKS for nowz
+    public String getSaleDTO(double dTotal) {
+        return new SaleDTO(LocalDateTime.now(), itemCart, dTotal).toString();
+    }
+    */
+    
+    /*
+    public SaleDTO getSaleDTO() {
+        return new SaleDTO(LocalDateTime.now(), itemCart);
+    }
+    */
+    
 }

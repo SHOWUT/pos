@@ -26,6 +26,11 @@ public class ItemRegistry {
         return "Item ID " +itemID + " is invalid";
     }
     // new
+    /**
+     * 
+     * @param itemID
+     * @return 
+     */
     public ItemDTO verifyItem(int itemID) {
         for (ItemDTO itemDTO : itemsAvalible) {
             if (itemID == itemDTO.getItemIdentification()) {
@@ -35,7 +40,10 @@ public class ItemRegistry {
         invalidItemID(itemID);
         return null;
     }
-    
+    /**
+     * 
+     * @param itemID 
+     */
     private void invalidItemID(int itemID) {
         System.out.println("Item ID " + itemID + " is invalid.");
     }

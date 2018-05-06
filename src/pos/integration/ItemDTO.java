@@ -33,7 +33,7 @@ public class ItemDTO {
     }
     
     public String toString() {
-        return "#" + itemIdentification + "\t\t" + itemDes + "\t\t" + price + " gold";
+        return "#" + itemIdentification + "\t" + itemDes + "\t" + price + " gold" + "\n";
     }
     
 }

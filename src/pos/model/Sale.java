@@ -10,8 +10,9 @@ import pos.integration.ItemDTO;
  * Collects all info regarding a particular sale.
  */
 public class Sale {
-    private LocalDateTime saleTime;
+    private final LocalDateTime saleTime;
     private final SaleInfo saleInfo = new SaleInfo();
+    
     /**
      * Creates a new instance, and records the time it was created. 
      * This will be the time recorded on the receipt. 
@@ -31,4 +32,16 @@ public class Sale {
     public double totalWithTax() {
         return saleInfo.totalWithTax();
     }
+    
+    /*---------- THIS METOD WORKZ FOR NOWZ COMBO
+    public String getSaleDTO(double dTotal) {
+        return saleInfo.getSaleDTO(dTotal);
+    }
+    */
+    
+    /*
+    public SaleDTO getSaleDTO() {
+        return saleInfo.getSaleDTO();
+    }
+    */
 }
