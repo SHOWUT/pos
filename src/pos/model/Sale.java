@@ -4,10 +4,9 @@ import java.time.LocalDateTime;
 import pos.integration.ItemDTO;
 
 /**
- *
- * @author Josh
- * 
  * Collects all info regarding a particular sale.
+ * 
+ * @author Josh
  */
 public class Sale {
     private final LocalDateTime saleTime;
@@ -21,27 +20,28 @@ public class Sale {
         saleTime = LocalDateTime.now();
     }
     
+    /**
+     * Registers the item the customer wants to purchase in their item cart.
+     * @param itemDTO The item that the customer wants to buy.
+     */
     public void addItem2Sale(ItemDTO itemDTO) {
         saleInfo.addItem2Cart(itemDTO);
     }
     
+    /**
+     * Forwards the action of finding out the running total to saleInfo. 
+     */
     public void runningTotal() {
        saleInfo.runningTotal();
     }
     
+    /**
+     * 
+     * @return The cost of all items the customer buys with tax included.
+     */
     public double totalWithTax() {
         return saleInfo.totalWithTax();
     }
     
-    /*---------- THIS METOD WORKZ FOR NOWZ COMBO
-    public String getSaleDTO(double dTotal) {
-        return saleInfo.getSaleDTO(dTotal);
-    }
-    */
     
-    /*
-    public SaleDTO getSaleDTO() {
-        return saleInfo.getSaleDTO();
-    }
-    */
 }

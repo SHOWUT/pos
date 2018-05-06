@@ -1,28 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pos.model;
 
-import pos.model.Sale;
-import pos.model.SaleInfo;
+
 import java.time.LocalDateTime;
 import java.util.List;
 import pos.integration.ItemDTO;
 /**
- * KVITTO, VILL HA MED SALE TIME, TOTAL W TAX, ALLA ITEMS MED DETALJER 
+ * SaleDTO has all the information on the current sale. 
  * @author Josh
  */
 public class SaleDTO {
     private final LocalDateTime saleTime;
     private final List<ItemDTO> itemCart;
     private final double totalWTax;
-    // nedan är test addioner
     private final double amount;
     private final double change;
 
-    // taking away , double totalWTax, double amount, double change
+    /**
+     * 
+     * @param saleTime The time and date the sale was made.
+     * @param itemCart The items that the customer wants to purchase.
+     * @param totalWTax The cost of all items including tax.
+     * @param amount The gold given as payment for the items.
+     * @param change The gold that is to be returned to the customer.
+     */
     public SaleDTO(LocalDateTime saleTime, List<ItemDTO> itemCart, double totalWTax, double amount, double change) {
         this.saleTime = saleTime;
         this.itemCart = itemCart;
@@ -32,33 +32,52 @@ public class SaleDTO {
     }
 
     
-    
+    /**
+     * 
+     * @return The time and date the sale was made.
+     */
     public LocalDateTime getSaleTime() {
         return saleTime;
     }
     
+    /**
+     * 
+     * @return The items that the customer wants to purchase.
+     */
     public List<ItemDTO> getItemCart() {
         return itemCart;
     }
     
-    
+    /**
+     * 
+     * @return The cost of all items including tax.
+     */
     public double getTotalWTax() {
         return totalWTax;
     }
     
     
-    
+    /**
+     * 
+     * @return The gold given as payment for the items.
+     */
     public double getAmount() {
         return amount;
     }
     
     
-    
+    /**
+     * 
+     * @return The gold that is to be returned to the customer.
+     */
     public double getChange() {
         return change;
     }
 
-    //double totalWTax, double amount, double change
+    /**
+     * 
+     * @return All the sales information displayed neatly.
+     */
     public String toString() {
         return ">-RECEIPT-<" + "\n" + "Time & date: " + saleTime + "\n" + "Items: " + itemCart + 
                 "\n" + "Total [Inc 25 % tax]: " + totalWTax + "\n" + "Amount given: " + amount + "\n" + "Change: "+ change;

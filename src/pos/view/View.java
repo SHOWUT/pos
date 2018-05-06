@@ -10,9 +10,10 @@ import pos.model.SaleDTO;
  * @author Josh
  */
 public class View {
-    private Controller contr;
-    private String testPrint;
+    private final Controller contr;
     private static final double AMOUNT_PAID_BY_CUSTOMER = 2700.56;
+    private static final int ITEMID_1 = 8465;
+    private static final int ITEMID_2 = 1857;
     // make the same variables for the item ids as amount paid by cust
     
     /**
@@ -31,27 +32,15 @@ public class View {
         System.out.println("Starting sample execution.");
         contr.startSale();
         System.out.println("After call to startSale().");
-        //SaleInfo saleInfo = contr.identifyItem(1234, 2); //itemid n quanNUm , tänk på inga odef num anv stora bokstäver
-        /*testPrint = contr.identifyItem(8465);
-        System.out.println(testPrint);
-         testPrint = contr.identifyItem(2638);
-        System.out.println(testPrint);
-        testPrint = contr.identifyItem(1234);
-        System.out.println(testPrint);
-        */
-        ItemDTO temp = contr.identifyAndRegItem(8465); // latest test. 
-        System.out.println(temp);
-        ItemDTO aa = contr.identifyAndRegItem(1857); // latest test. 
-        System.out.println(aa);
-       //invalid item ItemDTO nn = contr.identifyAndRegItem(1212); // latest test. 
-        // invalid item System.out.println(nn);
+        ItemDTO itemDTO_sample = contr.identifyAndRegItem(ITEMID_1);  
+        System.out.println(itemDTO_sample);
+        ItemDTO itemDTO_sample2 = contr.identifyAndRegItem(ITEMID_2); 
+        System.out.println(itemDTO_sample2);
         double dTotal = contr.fetchTotal();
         System.out.println("Total [Inc 25 % tax]: " + dTotal + " gold");
-       // workz metdo System.out.println(contr.saleReceipt(dTotal));
-        // workz metdo System.out.println(contr.payment(AMOUNT_PAID_BY_CUSTOMER));
-        contr.payment(AMOUNT_PAID_BY_CUSTOMER, dTotal);
-        SaleDTO kvitto = contr.getSaleDTO();
-        System.out.println(kvitto);
+       contr.payment(AMOUNT_PAID_BY_CUSTOMER, dTotal); 
+        SaleDTO kvittoSample = contr.getSaleDTO();
+        System.out.println(kvittoSample);
     }
     
 }
