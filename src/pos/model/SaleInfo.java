@@ -56,7 +56,7 @@ public class SaleInfo {
     }
     
     /**
-     * Calculates the total including 12% tax.
+     * Calculates the total including 25% tax.
      * @return The total cost with tax included. 
      */
     public double totalWithTax() {
