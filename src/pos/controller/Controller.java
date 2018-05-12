@@ -26,7 +26,6 @@ public class Controller {
     public void startSale() {
         sale = new Sale();
         itemRegistry = new ItemRegistry();
-        
     }
     
  
@@ -43,6 +42,7 @@ public class Controller {
          else {
              sale.addItem2Sale(itemDTO);
              sale.runningTotal();
+             sale.showRunningTotal();
          }
          
          return itemDTO;
@@ -61,10 +61,9 @@ public class Controller {
     /**
      * 
      * @param amount The amount of gold given by the customer.
-     * @param dtotal The total cost of all items including tax.
      */
-    public void payment (double amount, double dtotal) {
-         payment.payNChange(amount, dtotal);
+    public void payment (double amount) {
+         payment.payNChange(amount);
     }
     
     /**

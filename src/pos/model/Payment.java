@@ -14,9 +14,8 @@ public class Payment {
     private final SaleDTO saleDTO;
     private double change;
     private final Dbhandler dbhandler = new Dbhandler();
-   
-    private double dtotalWTax;
-    private double aamount;
+    private double theTotal;
+    private double theAmount;
     private final SaleInfo saleInfo = new SaleInfo();
 
     public Payment(SaleDTO saleDTO) {
@@ -26,12 +25,12 @@ public class Payment {
     /**
      * Helps figure out the change and sends information about the sale forward to dbhandler. 
      * @param amount The gold the customer gave.
-     * @param dtotal The total cost of the customers items.
      */
-    public void payNChange(double amount, double dtotal) {
-        dtotalWTax = dtotal;
-        aamount = amount;
-        change = changeAmount(amount, dtotal);
+    public void payNChange(double amount) {
+        saleInfo.runningTotal(); 
+        theTotal = saleInfo.totalWithTax(); 
+        theAmount = amount;
+        change = amountOfChange(theAmount, theTotal);
         dbhandler.sendInfoAS(saleDTO);
         dbhandler.sendInfoIS(saleDTO);
     }
@@ -43,9 +42,11 @@ public class Payment {
      * @param dtotal The total cost of the customers items.
      * @return The quantity of change that the customer should receive.
      */
-    private double changeAmount(double amount, double dtotal) {
-        return amount - dtotal;
+    private double amountOfChange(double amount, double total) {
+        return amount - total;
     }
+    
+    
     
     /**
      * initializes the making of a new SaleDTO.
@@ -53,6 +54,6 @@ public class Payment {
      */
     public SaleDTO getSaleDTO() {
         List<ItemDTO> itemCart = saleInfo.getItemCart();
-        return new SaleDTO(LocalDateTime.now(), itemCart, dtotalWTax, aamount, change);
+        return new SaleDTO(LocalDateTime.now(), itemCart, theTotal, theAmount, change);
     }
 }

@@ -76,10 +76,11 @@ public class SaleDTO {
 
     /**
      * 
-     * @return All the sales information displayed neatly.
+     * @return All the sales information displayed neatly, like in a receipt.
      */
     public String toString() {
-        return ">-RECEIPT-<" + "\n" + "Time & date: " + saleTime + "\n" + "Items: " + itemCart + 
-                "\n" + "Total [Inc 25 % tax]: " + totalWTax + "\n" + "Amount given: " + amount + "\n" + "Change: "+ change;
+        return ">-------RECEIPT--------<" + "\n" + "Time & date: " + saleTime + "\n" + "Items: " + itemCart + 
+                "\n" + "Total [Inc 25 % tax]: " + totalWTax + "\n" + "Amount given: " + amount + "\n" + "Change: "+ change + 
+                "\n" + ">---------------------<";
     }
 }

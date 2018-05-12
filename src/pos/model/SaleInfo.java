@@ -12,7 +12,9 @@ import pos.integration.ItemDTO;
 public class SaleInfo {
     public static List<ItemDTO> itemCart = new ArrayList<>(); 
      private double runningTotal; 
-     private static final double taxPct = 1.25; 
+     private double total;
+     private static final double TAX_PCT = 1.25; 
+     
      
     
      /**
@@ -44,15 +46,14 @@ public class SaleInfo {
         for (ItemDTO itemDTO : itemCart) {
             runningTotal += itemDTO.getPrice();
         }
-        showRunningTotal(runningTotal);
+      
     }
     
     /**
      * Shows the running total.
-     * @param runningTotal The current cost of the items in the cart.
      */
-    private void showRunningTotal(double runningTotal) {
-        System.out.println("Running Total: " + runningTotal);
+    public void showRunningTotal() {
+        System.out.println("Running Total: " + runningTotal + "\n" + "<See last added item below>");
     }
     
     /**
@@ -60,8 +61,11 @@ public class SaleInfo {
      * @return The total cost with tax included. 
      */
     public double totalWithTax() {
-        return runningTotal * taxPct;
+        total = runningTotal * TAX_PCT;
+        return total;
     }
+    
+    
     
 
     

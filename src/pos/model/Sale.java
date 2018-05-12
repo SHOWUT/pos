@@ -36,6 +36,12 @@ public class Sale {
     }
     
     /**
+     * Forwards the action of showing the running total to saleInfo.
+     */
+    public void showRunningTotal() {
+        saleInfo.showRunningTotal();
+    }
+    /**
      * 
      * @return The cost of all items the customer buys with tax included.
      */
