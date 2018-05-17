@@ -12,21 +12,22 @@ import pos.integration.ItemDTO;
  * @author Josh
  */
 public class InvalidIDException extends Exception {
-    private ItemDTO itemThatCanNotBeRegistered;
+    private ItemDTO itemThatCanNotBeRegistered; // dont need this, not using itemDTO here?
     
     /**
-     * WRITE COMM
-     * @param itemThatCanNotBeRegistered 
+     * Creates an instance with a message specifying for which item that could not be registered. 
+     * @param itemThatCanNotBeRegistered The item that could not be registered. 
      */
-    public InvalidIDException(ItemDTO itemThatCanNotBeRegistered) {
-        super("Unable to register item with itemID " + itemThatCanNotBeRegistered.getItemIdentification() + "since it doesn't exist "
-                + "in the item registry.");
-        this.itemThatCanNotBeRegistered = itemThatCanNotBeRegistered;
+    public InvalidIDException(int itemThatCanNotBeRegistered) {
+        super("Unable to register item with itemID #" + itemThatCanNotBeRegistered + " since it doesn't exist "
+                + "in the item registry." + "\n");
+        
     }
     
     /**
-     * WRITE COMM
-     * @return 
+     * dont need this, not using itemDTO here?dont need this, not using itemDTO here?
+     * -----------------------------------------------------------------------------------
+     * @return The item that could not be registered. 
      */
     public ItemDTO getItemThatCanNotBeRegistered() {
         return itemThatCanNotBeRegistered;

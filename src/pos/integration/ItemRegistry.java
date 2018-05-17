@@ -2,6 +2,7 @@ package pos.integration;
 
 import java.util.ArrayList;
 import java.util.List;
+import pos.model.InvalidIDException;
 
 /**
  * ItemRegistry makes sure the items are valid.
@@ -22,23 +23,21 @@ public class ItemRegistry {
     /**
      * Checks if there is a item that has the same ID number as the parameter. 
      * @param itemID The numbers used to tell what item it is. 
-     * @return The itemDTO containing info about the item if it is valid else it returns null.
+     * @return The itemDTO containing info about the item if it is valid.
+     * @throws ItemRegistryException if a database failure happens. 
+     * 
      */
-    public ItemDTO verifyItem(int itemID) {
+    public ItemDTO verifyItem(int itemID) throws Exception{
+        if (itemID == 1234) {
+            throw new ItemRegistryException("[FOR LOG] Database failure: search for itemID could not be performed.");
+        }
         for (ItemDTO itemDTO : itemsAvalible) {
             if (itemID == itemDTO.getItemIdentification()) {
                 return itemDTO;
             }
         }
-        invalidItemID(itemID);
-        return null;
-    }
-    /**
-     * Shows that the itemID entered is invalid. 
-     * @param itemID The numbers used to tell what item it is. 
-     */
-    private void invalidItemID(int itemID) {
-        System.out.println("Item ID " + itemID + " is invalid.");
+        
+        throw new InvalidIDException(itemID);
     }
     
     
