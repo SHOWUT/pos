@@ -18,11 +18,12 @@ public class View {
     
     /**
      * Constructs a new view, using the specified controller.
-     * 
+     * Also creates the observer. 
      * @param contr This controller will be used for all system operations. 
      */
     public View(Controller contr) {
         this.contr = contr;
+        contr.addTotalRevenueObserver(new TotalRevenueView());
     }
     
     /**
@@ -40,6 +41,7 @@ public class View {
         System.out.println("Total [Inc 25 % tax]: " + theTotal + " gold"); 
         contr.payment(AMOUNT_PAID_BY_CUSTOMER); 
         SaleDTO kvittoSample = contr.getSaleDTO();
+        contr.callTotalRevenue(kvittoSample);
         System.out.println(kvittoSample);
     }
     

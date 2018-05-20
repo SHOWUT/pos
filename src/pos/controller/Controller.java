@@ -5,6 +5,9 @@ import pos.integration.ItemRegistry;
 import pos.integration.ItemDTO;
 import pos.model.SaleDTO;
 import pos.model.Payment;
+import pos.model.SaleInfo;
+import pos.model.TotalRevenue;
+import pos.model.TotalRevenueObserver;
 
 
 /**
@@ -18,6 +21,8 @@ public class Controller {
     private ItemDTO itemDTO;
     private SaleDTO saleDTO;
     private final Payment payment = new Payment(saleDTO); 
+    private TotalRevenue totalRevenue = new TotalRevenue();
+    private SaleInfo saleInfo  = new SaleInfo();
     
     /**
      * Creates an empty instance of {@link Sale}, which will be used for all information regarding
@@ -26,6 +31,8 @@ public class Controller {
     public void startSale() {
         sale = new Sale();
         itemRegistry = new ItemRegistry();
+        
+        
     }
     
  
@@ -55,6 +62,22 @@ public class Controller {
      */
     public double fetchTotal() {
         return sale.totalWithTax();
+    }
+    
+    /**
+     * Observer gets total revenue. 
+     * @param obs The observer to notify 
+     */
+    public void addTotalRevenueObserver(TotalRevenueObserver obs) {
+        totalRevenue.addTotalRevenueObserver(obs);
+    }
+    
+    /**
+     * Ends up printing total revenue. 
+     * @param saleDTO has the total. 
+     */
+    public void callTotalRevenue(SaleDTO saleDTO) {
+        totalRevenue.revenue(saleDTO.getTotalWTax());
     }
     
     

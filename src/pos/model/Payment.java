@@ -27,7 +27,7 @@ public class Payment {
      * @param amount The gold the customer gave.
      */
     public void payNChange(double amount) {
-        saleInfo.runningTotal(); 
+        saleInfo.runningTotal();
         theTotal = saleInfo.totalWithTax(); 
         theAmount = amount;
         change = amountOfChange(theAmount, theTotal);
