@@ -49,7 +49,6 @@ public class View {
         
         
         double theTotal = contr.fetchTotal(); 
-        //System.out.println("Total [Inc 25 % tax]: " + theTotal + " gold"); ---hidden to get cleaner printout.
         contr.payment(AMOUNT_PAID_BY_CUSTOMER); 
         SaleDTO kvittoSample = contr.getSaleDTO();
         contr.callTotalRevenue(kvittoSample);
